@@ -30,7 +30,7 @@ ENV CONDA_DIR=/opt/conda
 RUN |2 UID= GID= /bin/bash -c wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh &&     /bin/bash ~/miniconda.sh -b -p /opt/conda # buildkit
 ENV PATH=/opt/conda/bin:/usr/local/nvidia/bin:/usr/local/cuda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 RUN |2 UID= GID= /bin/bash -c conda install -y mamba -c conda-forge # buildkit
-ADD ./environment.yml /root/environment.yml # buildkit
+COPY ./environment.yml /root/environment.yml # buildkit
 RUN |2 UID= GID= /bin/bash -c mamba env create --file /root/environment.yml &&    conda clean --all # buildkit
 RUN |2 UID= GID= /bin/bash -c conda init bash # buildkit
 RUN |2 UID= GID= /bin/bash -c echo "conda activate cp_dock"  >> ~/.bashrc # buildkit
