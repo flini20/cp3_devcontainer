@@ -21,7 +21,7 @@ COPY NGC-DL-CONTAINER-LICENSE /
 ENV NVIDIA_VISIBLE_DEVICES=all
 ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
 RUN /bin/sh -c chsh -s /bin/bash
-SHELL [/bin/bash -c]
+SHELL ["/bin/bash", "-c"]
 ARG UID
 ARG GID
 ENV DEBIAN_FRONTEND=noninteractive
