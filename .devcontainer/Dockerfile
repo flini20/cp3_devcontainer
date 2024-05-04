@@ -10,7 +10,7 @@ ENV NVIDIA_REQUIRE_CUDA=cuda>=11.3 brand=tesla,driver>=418,driver<419 driver>=45
 ENV NV_CUDA_CUDART_VERSION=11.3.109-1
 ENV NV_CUDA_COMPAT_PACKAGE=cuda-compat-11-3
 ARG TARGETARCH
-LABEL maintainer=NVIDIA CORPORATION <cudatools@nvidia.com>
+LABEL maintainer="NVIDIA CORPORATION <cudatools@nvidia.com>"
 RUN |1 TARGETARCH=amd64 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends gnupg2 curl ca-certificates && curl -fsSL https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/${NVARCH}/3bf863cc.pub | apt-key add - && echo "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/${NVARCH} /" > /etc/apt/sources.list.d/cuda.list && apt-get purge --autoremove -y curl && rm -rf /var/lib/apt/lists/*
 ENV CUDA_VERSION=11.3.1
 RUN |1 TARGETARCH=amd64 /bin/sh -c apt-get update && apt-get install -y --no-install-recommends cuda-cudart-11-3=${NV_CUDA_CUDART_VERSION} ${NV_CUDA_COMPAT_PACKAGE} && rm -rf /var/lib/apt/lists/*
