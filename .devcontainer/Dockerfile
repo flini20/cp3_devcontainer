@@ -1,4 +1,5 @@
-FROM nvidia/cuda:11.3.1-base-ubuntu20.04
+# FROM nvidia/cuda:11.3.1-base-ubuntu20.04
+FROM nvidia/cuda:12.4.1-base-ubuntu20.04
 # Image with cellpose installed and GUI working. Access to NVIDIA GPU.
 
 # set bash as current shell
