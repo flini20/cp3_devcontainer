@@ -8,7 +8,8 @@
 		"dockerfile": "Dockerfile"
 		// Update 'args' to set an argument.
 		// "args": { }
-	}
+	},
+	"runArgs": ["--gpus=all", "--name=cp_ben", "-h=imaginganalysis", "-v=/media/ben/Analysis/Python/Docker_mount:/home"]
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
