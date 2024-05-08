@@ -40,12 +40,12 @@ ENV PATH /opt/conda/envs/cp_dock/bin:$PATH
 ENV CONDA_DEFAULT_ENV cp_dock
 
 # Set up user (in linux this allow to modify the files/folders created by the container in the host machine)
-ARG UID
-ARG GID
-RUN addgroup --gid $GID cpdev && \
-    adduser --uid $UID --gid $GID --disabled-password --gecos "" cpdev && \
-    echo "cpdev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-USER cpdev
+# ARG UID
+# ARG GID
+# RUN addgroup --gid $GID cpdev && \
+#     adduser --uid $UID --gid $GID --disabled-password --gecos "" cpdev && \
+#     echo "cpdev ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+# USER cpdev
 
 # Build with: docker build . --build-arg UID=$(id -u) --build-arg GID=$(id -g) -t cpdev:ben2
 # Run with: docker run -it --gpus all --name cp_ben -h imaginganalysis  -e DISPLAY=${DISPLAY} -v /tmp/.X11-unix:/tmp/.X11-unix -v "${PWD}:/home" cpdev:ben
