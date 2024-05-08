@@ -1,4 +1,4 @@
-name: cp3_devcontainer
+name: cp_dock
 channels:
  - pytorch
  - conda-forge
