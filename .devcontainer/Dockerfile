@@ -9,6 +9,7 @@ SHELL ["/bin/bash", "-c"]
 # Install base utilities
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
+    && apt-get install -y python3-pyqt5 \
     && apt-get install -y libxcb-cursor0 \
     && apt-get install -y build-essential \
     && apt-get install -y git \
@@ -40,8 +41,8 @@ ENV CONDA_DEFAULT_ENV cp_dock
 
 # Install pytorch and dep
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-RUN conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-RUN conda install https://conda.anaconda.org/pytorch/linux-64/pytorch-2.3.0-py3.8_cuda12.1_cudnn8.9.2_0.tar.bz2
+RUN conda install -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+RUN conda install -y https://conda.anaconda.org/pytorch/linux-64/pytorch-2.3.0-py3.8_cuda12.1_cudnn8.9.2_0.tar.bz2
 RUN conda install -y pyg -c pyg
 RUN pip install --no-index torch-sparse -f https://pytorch-geometric.com/whl/torch-2.3.0+cu121.html
 RUN pip install --no-index torch-scatter -f https://pytorch-geometric.com/whl/torch-2.3.0+cu121.html
