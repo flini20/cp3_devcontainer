@@ -9,10 +9,9 @@ SHELL ["/bin/bash", "-c"]
 # Install base utilities
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
-    && apt install -y python3-pyqt5 \
+    && apt-get install -y xcb-cursor0 \
     && apt-get install -y libxcb-cursor0 \
     && apt-get install -y build-essential \
-    && apt-get install -y sudo \
     && apt-get install -y git \
     && apt-get install -y wget \
     && apt-get clean \
@@ -39,6 +38,21 @@ RUN conda init bash
 RUN echo "conda activate cp_dock"  >> ~/.bashrc
 ENV PATH /opt/conda/envs/cp_dock/bin:$PATH
 ENV CONDA_DEFAULT_ENV cp_dock
+
+# Install pytorch and dep
+RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+RUN conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+RUN conda install https://conda.anaconda.org/pytorch/linux-64/pytorch-2.3.0-py3.8_cuda12.1_cudnn8.9.2_0.tar.bz2
+RUN conda install -y pyg -c pyg
+RUN pip install --no-index torch-sparse -f https://pytorch-geometric.com/whl/torch-2.3.0+cu121.html
+RUN pip install --no-index torch-scatter -f https://pytorch-geometric.com/whl/torch-2.3.0+cu121.html
+
+# Install ImageAnalysis
+RUN git clone -b main2.0_dev https://github.com/BennyGinger/ImageAnalysis_pipeline.git ./ImageAnalysis
+WORKDIR /ImageAnalysis
+RUN pip install -e .
+
+
 
 # Set up user (in linux this allow to modify the files/folders created by the container in the host machine)
 # ARG UID
