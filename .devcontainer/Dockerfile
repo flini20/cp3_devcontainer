@@ -9,7 +9,6 @@ SHELL ["/bin/bash", "-c"]
 # Install base utilities
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
-    && apt-get install -y xcb-cursor0 \
     && apt-get install -y libxcb-cursor0 \
     && apt-get install -y build-essential \
     && apt-get install -y git \
