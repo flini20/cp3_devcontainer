@@ -46,7 +46,7 @@ dependencies:
    - hydra-core==1.1.0.dev5
    - wandb
    - rich
-   - cellpose==3.0.7
+   - cellpose[gui]==3.0.7
    - pandas
    - nd2
    - pytest
