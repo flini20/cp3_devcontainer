@@ -43,9 +43,10 @@ ENV CONDA_DEFAULT_ENV cp_dock
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 RUN conda install -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 RUN conda install -y https://conda.anaconda.org/pytorch/linux-64/pytorch-2.3.0-py3.8_cuda12.1_cudnn8.9.2_0.tar.bz2
-RUN conda install -y pyg -c pyg
-RUN pip install --no-index torch-sparse -f https://pytorch-geometric.com/whl/torch-2.3.0+cu121.html
+# RUN conda install -y pyg -c pyg
+# RUN pip install --no-index torch-sparse -f https://pytorch-geometric.com/whl/torch-2.3.0+cu121.html
 RUN pip install --no-index torch-scatter -f https://pytorch-geometric.com/whl/torch-2.3.0+cu121.html
+RUN pip install torch_geometric && pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.3.0+cu121.html
 
 # Install ImageAnalysis
 RUN git clone -b main2.0_dev https://github.com/BennyGinger/ImageAnalysis_pipeline.git ./ImageAnalysis
