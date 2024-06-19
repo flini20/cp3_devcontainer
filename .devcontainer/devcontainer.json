@@ -9,7 +9,7 @@
 		// Update 'args' to set an argument.
 		// "args": { }
 	},
-	"runArgs": ["--gpus=all", "-v=e/:/home","-e", "DISPLAY=host.docker.internal:0.0"]
+	"runArgs": ["--gpus=all", "-v=H:/Docker/ImageAnalysis/:/home","-e", "DISPLAY=host.docker.internal:0.0"]
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
