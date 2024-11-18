@@ -285,7 +285,6 @@ dependencies:
       - google-resumable-media==2.7.0
       - googleapis-common-protos==1.63.0
       - hydra-core==1.1.0.dev5
-      - imageanalysis==1.0.0
       - imagecodecs==2023.3.16
       - imageio==2.34.1
       - imagesize==1.4.1
