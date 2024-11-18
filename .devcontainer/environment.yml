@@ -1,6 +1,6 @@
 name: cp_dock
 channels:
- - nvidia/label/cuda-12.4
+ - nvidia/label/cuda-12.4.1
  - nvidia
  - pyg
  - pytorch
@@ -8,7 +8,7 @@ channels:
  - metric-learning
 dependencies:
  - python=3.8.13
- - cudatoolkit=12.4
+ - cuda-toolkit
  - pytorch=2.5.0
  - torchvision=0.20.0
  - torchaudio=2.5.0
