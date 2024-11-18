@@ -13,7 +13,7 @@
 
 	"mounts": [
 		//"source=A:\\,target=/homeA,type=bind",
-		"source=D:\\,target=/homeD,type=volume"	
+		"source=D:\\,target=/homeD,type=bind"	
 	]
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
