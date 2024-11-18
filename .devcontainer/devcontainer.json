@@ -9,7 +9,12 @@
 		// Update 'args' to set an argument.
 		// "args": { }
 	},
-	"runArgs": ["--gpus=all", "-v=A:\:/home","-e", "DISPLAY=host.docker.internal:0.0"]
+	"runArgs": ["--gpus=all", "DISPLAY=host.docker.internal:0.0"], // "-v=A:\:/home","-e",
+
+	"mounts": [
+		"source=A:\\,target=/homeA,type=bind",
+		"source=D:\\,target=/homeD,type=bind"	
+	]
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
